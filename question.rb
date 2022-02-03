@@ -1,4 +1,4 @@
-class Question
+class Quiz
 
   def initialize
 @number = rand(20)
@@ -10,17 +10,16 @@ def question
   "What does #{@number} plus #{@number2} equal?"
   end
 
-  def checker 
-   @answer = gets.chomp.to_i
-   if (@answer == @correct)
-   puts "correct!"
+  def checker (player_answer)
+   if ( player_answer == @correct)
+   return true
    else 
-    puts "wrong!"
+    return false
    end
 
   end
 
 end
-run = Question.new
-p run.question
-p run.checker
+# run = Question.new
+# p run.question
+# p run.checker
