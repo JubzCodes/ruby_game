@@ -21,23 +21,25 @@ class Game
       puts " Player 2 : #{quiz.question}"
     end
 
-
   #changes players turn value
     if (@turn == 0 && quiz.checker(gets.chomp.to_i))
       puts "Player 1: Correct!"
-      @turn = 1 
+      @turn += 1 
     elsif (@turn == 0 && !quiz.checker(gets.chomp.to_i))
       puts "Player 1: Wrong!"
       player_1.wrong
-      @turn = 1
+      @turn += 1
     elsif (@turn == 1 && quiz.checker(gets.chomp.to_i))
       puts "Player 2: Correct!"
-      @turn = 0
+      @turn -= 1
     elsif (@turn == 1 && !quiz.checker(gets.chomp.to_i))
       puts "Player 2: Wrong!"
       player_2.wrong
-      @turn = 0
+      @turn -= 1
     end
+
+    #score keeper
+    puts "P1 : #{player_1.lives}/3 vs P2 : #{player_2.lives}/3"
 
 #ends game and shows results
   if (player_1.end || player_2.end)
@@ -50,6 +52,7 @@ class Game
     end
   end
 
+puts "Goodbye!"
 
   end # while end
 end #game class end
